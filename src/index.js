@@ -1,3 +1,4 @@
+//挨拶
 function sayHello() {
   console.log("こんにちは！");
 }
