@@ -134,3 +134,107 @@ const result1 = trueFlag ? "trueです" : "falseです";
 console.log(result1); //trueです　が表示
 const result2 = falseFlag ? "trueです" : "falseです";
 console.log(result2); //falseです　が表示
+
+/*true/falseの判定について色々値を入れて確かめてみよう
+"ABC",0,10,undefind,null,false,NaN,"",[],{}; を値に入れてtrue(表示はtrushy)になるものはどれか見てみる。*/
+const val0 = "ABC"; //true
+if (val0) {
+  console.log("trushyです");
+}
+console.log();
+const val1 = 0;
+if (val1) {
+  console.log("trushyです");
+}
+console.log();
+const val2 = 10; //true
+if (val2) {
+  console.log("trushyです");
+}
+console.log();
+const val3 = undefined;
+if (val3) {
+  console.log("trushyです");
+}
+console.log();
+const val4 = null;
+if (val4) {
+  console.log("trushyです");
+}
+console.log();
+const val5 = false;
+if (val5) {
+  console.log("trushyです");
+}
+console.log();
+const val6 = NaN;
+if (val6) {
+  console.log("trushyです");
+}
+console.log();
+const val7 = "";
+if (val7) {
+  console.log("trushyです");
+}
+console.log();
+const val8 = []; //true
+if (val8) {
+  console.log("trushyです");
+}
+console.log();
+const val9 = {}; //true
+if (val9) {
+  console.log("trushyです");
+}
+console.log();
+/*構文の書き方としては省略して書けるはずと思い、調べfilterというメソッドを見つけたが、'array.filter(callback [,that]);'
+書き方が把握し切れずに使用断念（そもそもこのメソッドで良いのかという判断もつかなかった）今後の講義でも出るかもしれないのと、順を追った方がよいと判断し、
+ひとつづつ書くことにする。*/
+
+//for文,while文
+const numbers = [1, 2, 3];
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+} //1
+//2
+//3 と表示され4になる前に終了
+let num13 = 1;
+while (num13 <= 3) {
+  console.log(num13);
+  num13++;
+} //1
+//2
+//3 同じく
+//React開発にはあまり使用しないらしいが、わからないのはよくないのと混乱を避けるため理解はするようにしよう。
+
+//if else文
+const str0 = "C";
+
+if (str0 === "A") {
+  console.log("Aです");
+} else if (str0 === "B") {
+  console.log("Bです");
+} else {
+  console.log("その他です");
+}
+//同一の変数に見合う処理を表示するのに使える
+
+//switch文
+const str1 = "C";
+switch (str1) {
+  case "A":
+    console.log("A");
+    break;
+  case "B":
+    console.log("B");
+  default:
+    console.log("その他です");
+    break;
+} //この場合上記のif else文と内容は同じだが、こちらの方が使い勝手が良さそう。breakを入れないと判定が続くので注意。
+
+//try catch文
+try {
+  throw new Error("例外発生");
+} catch (error) {
+  console.log(error.message);
+}
