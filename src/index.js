@@ -191,7 +191,7 @@ console.log();
 書き方が把握し切れずに使用断念（そもそもこのメソッドで良いのかという判断もつかなかった）今後の講義でも出るかもしれないのと、順を追った方がよいと判断し、
 ひとつづつ書くことにする。*/
 
-//for文,while文
+//for文,while文　(配列をループして処理を行う）
 const numbers = [1, 2, 3];
 for (let i = 0; i < numbers.length; i++) {
   console.log(numbers[i]);
@@ -234,6 +234,7 @@ switch (str1) {
 
 //try catch文
 try {
+  //処理
   throw new Error("例外発生");
 } catch (error) {
   console.log(error.message);
@@ -241,12 +242,69 @@ try {
 
 //〜ES6以降のモダンな記法　　テンプレート文字列〜
 //従来の型
-const name0 = "ooya君"; //クォーテーションはシングルでもダブルでも良い
+const name0 = "ooya君"; //クォーテーションはシングルでもダブルでも良い。自分はダブル派。チームに合わせることが仕事では吉。
 const age0 = 39;
 const sentence = name0 + "は" + age0 + "歳です！";
-console.log(sentence); //ooya君は39歳です
+console.log(sentence); //ooya君は39歳です!
 //テンプレート文字列を用いた方法
-const name1 = "ooya君"; //クォーテーションはシングルでもダブルでも良い
+const name1 = "ooya君";
 const age1 = 39;
-const sentence0 = `${name1}は${age1}歳です！`;
-console.log(sentence0); //ooya君は39歳です
+const sentence0 = `${name1}は${age1}歳です！`; // `` (バッククォートで囲むと${}の中がJavascriptになる)
+console.log(sentence0); //同じくooya君は39歳です!
+
+//アロー関数
+/*従来
+function(引数)　{
+  処理内容
+}
+ アロー関数
+ (引数)　=> {
+   処理内容
+ }　　
+ =>(矢印のよう) を引数の後に書けばfunctionと記述しなくても動く*/
+//従来
+const func1 = function (name) {
+  return `${name}です!`;
+};
+//アロー関数
+const func2 = (name) => {
+  return `${name}です!`;
+};
+console.log(func1("大谷")); //大谷です!
+console.log(func2("大谷丸")); //大谷丸です!
+
+//引数が１つの時はかっこ（）を省略できる
+const func3 = (name) => {
+  return `${name}です!`;
+};
+console.log(func3("オオヤ")); //オオヤです!
+
+/*２つ以上引数を入れるとエラーになってしまう（この場合nameとageが入ってる　）
+
+const func4 = name, age => {
+  return `${name}です!`;
+}
+console.log(func4("オオヤ"));//オオヤです!　*/
+
+//2つ以上引数がある時はかっこ()で囲む
+const func5 = (name, age) => {
+  return `${name}です!`;
+};
+console.log(func5("オオヤ")); //オオヤです!
+
+//処理が１行（ひと塊）で終わる場合は{}とreturnを省略できる。覚えておくと激アツ。
+
+/*const func6 = (name) => {
+  return `${name}です!`;
+}
+console.log(func6("オオヤ"));* このひと塊の処理が ↓ */
+const func6 = (name) => `${name}です!`;
+console.log(func6("おおや")); //おおやです!
+//よく覚えておくように
+
+const func7 = () => ({
+  name: "おおやくん",
+  age: 39
+});
+console.log(func7()); //{name:おおやくん, age: 39}
+//アロー関数はまだ把握できてないので今後も覚えよう
