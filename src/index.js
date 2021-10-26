@@ -95,10 +95,42 @@ console.log(--num10); //9
 console.log(num10--); //9
 console.log(num10); //8
 
+/*〜比較演算子〜
+== 比較　=== 厳密比較 != 異なるかの比較 !== 異なるかの厳密比較 > 大なり　 >= 大なり（対象の数を含む） < 小なり <= 小なり（対象の数を含む） */
+const num11 = 1;
+const str = "1";
+console.log(num11 == str); //true
+console.log(num11 === str); //false 厳密比較だとfalseになる（基本こちらを使用）
+console.log(num11 != str); //false
+console.log(num11 !== str); //true
+const num12 = 3;
+console.log(num12 > 3); //false
+console.log(num12 >= 3); //true
+console.log(num12 < 3); //false
+console.log(num12 <= 3); //true
+
+/*〜論理演算子〜
+if文に於いて、&& 左右どちらもtrueなら　 ||左右どちらかtrueなら　。　どちらも先ずは左側の判定を行い、そこがtrueなら結果を返す。falseなら右側を判定し、その結果を返す。左から右へ都度都度判定が行われる*/
 const trueFlag = true;
 const falseFlag = false;
 
+if (trueFlag && falseFlag) {
+  //左しかtrueではないので実行されない
+}
+if (trueFlag || falseFlag) {
+  //どちらかが　（この場合左が）trueなので実行される
+}
 trueFlag && console.log("A");
 falseFlag && console.log("B");
 trueFlag || console.log("C");
-falseFlag || console.log("D");
+falseFlag || console.log("D"); //この場合AとDが表示される
+//　! 評価結果を反転する
+if (!falseFlag) {
+  //falseの逆でtrueなので実行される
+}
+
+//三項演算子　　　AがtrueならBを、falseならCを返却
+const result1 = trueFlag ? "trueです" : "falseです";
+console.log(result1); //trueです　が表示
+const result2 = falseFlag ? "trueです" : "falseです";
+console.log(result2); //falseです　が表示
