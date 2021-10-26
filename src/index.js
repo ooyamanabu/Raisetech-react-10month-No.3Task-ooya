@@ -237,4 +237,16 @@ try {
   throw new Error("例外発生");
 } catch (error) {
   console.log(error.message);
-}
+} //tryの中で何かしらの例外が発生した場合、catchの方にとびそちらの処理が行われる。throwを使うと任意でエラー等の処理を発生させることができる。
+
+//〜ES6以降のモダンな記法　　テンプレート文字列〜
+//従来の型
+const name0 = "ooya君"; //クォーテーションはシングルでもダブルでも良い
+const age0 = 39;
+const sentence = name0 + "は" + age0 + "歳です！";
+console.log(sentence); //ooya君は39歳です
+//テンプレート文字列を用いた方法
+const name1 = "ooya君"; //クォーテーションはシングルでもダブルでも良い
+const age1 = 39;
+const sentence0 = `${name1}は${age1}歳です！`;
+console.log(sentence0); //ooya君は39歳です
